@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Character Chat</title>
+  <link rel="stylesheet" href="style.css?v=mobile-focus-1">
+</head>
+<body>
+  <div
+    id="toast-container"
+    class="toast-container"
+    aria-live="polite"
+    aria-atomic="false"
+  ></div>
+
+  <main class="app-shell">
+    <aside id="history-panel" class="history-panel hidden">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>
+          <strong>Character AI</strong>
+          <span>Local companion</span>
+        </div>
+      </div>
+
+      <button
+        id="new-chat-button"
+        class="new-chat-button"
+        type="button"
+      >＋ New chat</button>
+
+      <div class="history-heading">
+        <span>Recent conversations</span>
+        <span class="history-count">0</span>
+      </div>
+
+      <nav
+        id="conversation-history"
+        class="conversation-history"
+        aria-label="Conversation history"
+      ></nav>
+
+      <div class="sidebar-footer">
+        <div class="connection-dot"></div>
+        <span>Ollama connected locally</span>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <button
+          id="history-toggle"
+          class="icon-button"
+          type="button"
+          aria-label="Hide conversation history"
+          title="Hide conversation history"
+        >☰</button>
+
+        <div class="model-picker" aria-label="Current character">
+          <span class="status-dot"></span>
+          <span class="character-label">Xin</span>
+        </div>
+
+        <button
+          class="icon-button"
+          type="button"
+          aria-label="More options"
+          title="More options"
+        >•••</button>
+      </header>
+
+      <div class="stage">
+        <div class="stage-caption">
+          <span class="live-pill">
+            <span class="status-dot"></span>
+            LIVE
+          </span>
+          <span>Character stage</span>
+        </div>
+
+        <div class="character-canvas" aria-label="Character canvas">
+          <div class="canvas-grid"></div>
+
+          <div
+            id="character-display"
+            class="character-display"
+            data-character="xin"
+            data-state="idle"
+          >
+            <img
+              id="character-image"
+              src="characters/Xin/bot2_idle.png"
+              alt="Xin character idle"
+            >
+            <span id="character-state" class="character-state">
+              bot2_idle
+            </span>
+          </div>
+
+          <div id="reply-bubble" class="reply-bubble" hidden>
+            <div class="bubble-tail"></div>
+            <div class="bubble-label">MY CHARACTER</div>
+            <p id="reply-bubble-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="composer-area">
+        <p
+          id="speech-status"
+          class="speech-status"
+          role="status"
+        ></p>
+
+        <form id="chat-form" class="composer">
+          <button
+            id="microphone-button"
+            class="microphone-button"
+            type="button"
+            aria-label="Speak your message"
+            title="Speak your message"
+          >🎙️</button>
+
+          <input
+            id="user-input"
+            type="text"
+            placeholder="Message your character..."
+            autocomplete="off"
+            required
+          >
+
+          <button
+            id="send-button"
+            class="send-button"
+            type="submit"
+            aria-label="Send message"
+            title="Send message"
+          >↑</button>
+        </form>
+
+        <div class="composer-tools">
+          <span>
+            Click an assistant reply to play its KittenTTS audio.
+            Click it again while hovering to stop.
+          </span>
+          <span>AI can make mistakes. Check important info.</span>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="messages"
+      class="messages"
+      aria-live="polite"
+      aria-label="Conversation messages"
+    >
+      <div class="message bot">
+        <span>Hello! How can I help you today?</span>
+      </div>
+    </section>
+  </main>
+
+  
+  <script src="script.js?v=mobile-focus-1"></script>
+</body>
+</html>
